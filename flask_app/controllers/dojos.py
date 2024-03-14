@@ -4,10 +4,13 @@ from flask_app.models.dojo import Dojo
 from flask_app.models.ninja import Ninja
 
 
-@app.route("/")
+@app.route('/')
 def index():
-    all_dojos = Dojo.get_all()
-    return render_template("dojos.html", all_dojos=all_dojos)
+    return redirect('/dojos')
+
+@app.route('/dojos')
+def dashboard():
+    return render_template('dojos.html', all_dojos = Dojo.get_all())
 
 
 @app.post("/create_dojo")
