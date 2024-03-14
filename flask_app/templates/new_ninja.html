@@ -17,11 +17,24 @@
         <div class="card-body">
           <h5 class="card-title">Create A Ninja!</h5>
           <form action="/create_ninja" method="post">
+            <select class="form-select">
+              <option selected>Which Dojo?</option>
+              {% for dojo in all_dojos %}
+              <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+              {% endfor %}
+            </select>
+            <label for="first_name" class="form-label mt-3">First Name</label>
+            <input type="text" class="form-control" name="first_name">
+            <label for="last_name" class="form-label mt-3">Last Name</label>
+            <input type="text" class="form-control" name="last_name">
+            <label for="age" class="form-label mt-3">Age</label>
+            <input type="number" class="form-control" name="age">
             
             
-            
-            
-            <input type="submit" class="btn btn-primary" value="Create Ninja">
+            <div class="container d-flex justify-content-center">
+              <input type="hidden" value="{{ dojo.id }}" name="dojo_id">
+              <input type="submit" class="btn btn-primary mt-5" value="Create Ninja">
+            </div>
           </form>
         </div>
       </div>
