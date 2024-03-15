@@ -3,10 +3,12 @@ from flask import render_template, redirect, request
 from flask_app.models.dojo import Dojo
 from flask_app.models.ninja import Ninja
 
-@app.route("/dojo_info/<int:dojo_id>")
-def get_ninjas(dojo_id):
-    ninjas = Ninja.get_dojo_ninjas({"dojo_id": dojo_id})
-    return render_template("dojo_show.html", ninjas=ninjas)
+@app.route("/dojo_info/<int:id>")
+def get_ninjas(id):
+    data = {
+        "id": id
+    }
+    return render_template("dojo_show.html", dojo = Dojo.get_one(data))
 
 
 @app.route("/ninja_page")
