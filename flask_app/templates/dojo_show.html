@@ -29,8 +29,10 @@
             <td>{{ ninja.age }}</td>
             <td>
               {# Need Forms Surrounding These Inputs And Routes/Class Methods #}
-              <input type="submit" class="btn btn-warning mx-2" value="Edit" />
-              <input type="submit" class="btn btn-danger" value="Delete" />
+              <form action="/edit_ninja/{{ ninja.id }}">
+                <input type="submit" class="btn btn-warning mx-2" value="Edit">
+              </form>
+              <a href="delete_ninja/{{ ninja.id }}" class="btn btn-danger" value="Delete">Delete</a>
               {# Need Forms Surrounding These Inputs And Routes/Class Methods #}
             </td>
           </tr>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/quartz.css')}}"
+    />
+    <title>Edit Ninja</title>
+  </head>
+  <body>
+    <div class="container mt-5 d-flex justify-content-center">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Edit Ninja!</h5>
+          <form action="/update_ninja" method="post">
+            <input type="hidden" name="dojo_id" value="{{ninja.dojo_id}}">
+            <input type="hidden" name="id" value="{{ninja.id}}">
+            <label for="first_name" class="form-label mt-3">First Name</label>
+            <input type="text" class="form-control" name="first_name" value="{{ninja.first_name}}" />
+            <label for="last_name" class="form-label mt-3">Last Name</label>
+            <input type="text" class="form-control" name="last_name" value="{{ninja.last_name}}" />
+            <label for="age" class="form-label mt-3">Age</label>
+            <input type="number" class="form-control" name="age" value="{{ninja.age}}"/>
+
+            <div class="container d-flex justify-content-center">
+              <input
+                type="submit"
+                class="btn btn-primary mt-5"
+                value="Update Ninja"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container d-flex justify-content-center mt-3">
+      <form action="/">
+        <input type="submit" class="btn btn-primary" value="Home" />
+      </form>
+    </div>
+  </body>
+</html>

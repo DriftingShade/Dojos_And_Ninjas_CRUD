@@ -16,11 +16,19 @@ def ninja_page():
 
 @app.post("/create_ninja")
 def new_ninja():
-    ninja_info = {
-        "dojo_id": request.form["dojo_id"],
-        "first_name": request.form["first_name"],
-        "last_name": request.form["last_name"],
-        "age": request.form["age"]
-    }
-    Ninja.save(ninja_info)
-    return redirect("/")
+    dojo_id = request.form["dojo_id"]
+    Ninja.save(request.form)
+    return redirect(f"/dojo_info/{dojo_id}")
+
+@app.get("/edit_ninja/<int:ninja_id>")
+def edit_ninja(ninja_id):
+    ninja = Ninja.find_by_id({"id": ninja_id})
+    if ninja == None:
+        return "Cannot find Ninja."
+    return render_template("edit_ninja.html", ninja=ninja)
+
+@app.post("/update_ninja")
+def update_ninja():
+    dojo_id = request.form["dojo_id"]
+    Ninja.update(request.form)
+    return redirect(f"/dojo_info/{dojo_id}")
