@@ -32,3 +32,9 @@ def update_ninja():
     dojo_id = request.form["dojo_id"]
     Ninja.update(request.form)
     return redirect(f"/dojo_info/{dojo_id}")
+
+@app.post("/delete_ninja/<int:ninja_id>")
+def delete_ninja(ninja_id):
+    dojo_id = request.form["dojo_id"]
+    Ninja.delete(ninja_id)
+    return redirect(f"/dojo_info/{dojo_id}")

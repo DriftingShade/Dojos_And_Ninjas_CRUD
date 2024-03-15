@@ -48,3 +48,11 @@ class Ninja:
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
         return results[0]
+    
+    @classmethod
+    def delete(cls, ninja_id):
+        query = """DELETE FROM ninjas WHERE id = %(id)s;"""
+        data = {"id": ninja_id}
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        print(results)
+        return results
