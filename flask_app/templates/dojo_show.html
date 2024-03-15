@@ -28,13 +28,15 @@
             <td>{{ ninja.last_name }}</td>
             <td>{{ ninja.age }}</td>
             <td>
-              <form action="/edit_ninja/{{ ninja.id }}" name="id">
-                <input type="submit" class="btn btn-warning mx-2" value="Edit">
-              </form>
-              <form action="/delete_ninja/{{ ninja.id }}" name="id" method="post">
-                <input type="submit" class="btn btn-danger mx-2" value="Delete">
-                <input type="hidden" name="dojo_id" value="{{ninja.dojo_id}}">
-              </form>
+              <div class="container d-flex justify-content-center">
+                <form action="/edit_ninja/{{ ninja.id }}" name="id">
+                  <input type="submit" class="btn btn-warning mx-2" value="Edit">
+                </form>
+                <form action="/delete_ninja/{{ ninja.id }}" name="id" method="post">
+                  <input type="submit" class="btn btn-danger mx-2" value="Delete">
+                  <input type="hidden" name="dojo_id" value="{{ninja.dojo_id}}">
+                </form>
+              </div>
             </td>
           </tr>
           {% endfor %}
