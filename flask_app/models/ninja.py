@@ -31,7 +31,7 @@ class Ninja:
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
         return results
-    
+
     @classmethod
     def update(cls, data):
         query = """UPDATE ninjas SET dojo_id=%(dojo_id)s, first_name=%(first_name)s,
@@ -39,7 +39,7 @@ class Ninja:
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
         return results
-    
+
     @classmethod
     def find_by_id(cls, data):
 
@@ -47,7 +47,7 @@ class Ninja:
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
         return results[0]
-    
+
     @classmethod
     def delete(cls, ninja_id):
         query = """DELETE FROM ninjas WHERE id = %(id)s;"""

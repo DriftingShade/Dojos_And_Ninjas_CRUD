@@ -24,17 +24,29 @@
         <tbody>
           {% for ninja in dojo.ninjas %}
           <tr>
-            <td>{{ ninja.first_name }}</td>
-            <td>{{ ninja.last_name }}</td>
-            <td>{{ ninja.age }}</td>
+            <td class="align-middle">{{ ninja.first_name }}</td>
+            <td class="align-middle">{{ ninja.last_name }}</td>
+            <td class="align-middle">{{ ninja.age }}</td>
             <td>
               <div class="container d-flex justify-content-center">
                 <form action="/edit_ninja/{{ ninja.id }}" name="id">
-                  <input type="submit" class="btn btn-warning mx-2" value="Edit">
+                  <input
+                    type="submit"
+                    class="btn btn-warning mx-2"
+                    value="Edit"
+                  />
                 </form>
-                <form action="/delete_ninja/{{ ninja.id }}" name="id" method="post">
-                  <input type="submit" class="btn btn-danger mx-2" value="Delete">
-                  <input type="hidden" name="dojo_id" value="{{dojo.id}}">
+                <form
+                  action="/delete_ninja/{{ ninja.id }}"
+                  name="id"
+                  method="post"
+                >
+                  <input
+                    type="submit"
+                    class="btn btn-danger mx-2"
+                    value="Delete"
+                  />
+                  <input type="hidden" name="dojo_id" value="{{dojo.id}}" />
                 </form>
               </div>
             </td>
