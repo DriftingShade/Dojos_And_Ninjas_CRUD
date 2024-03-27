@@ -24,6 +24,14 @@ class Ninja:
         return ninjas
 
     @classmethod
+    def find_by_id(cls, data):
+
+        query = "SELECT * FROM ninjas WHERE id = %(id)s;"
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        print(results)
+        return results[0]
+
+    @classmethod
     def save(cls, data):
         query = """INSERT INTO ninjas (dojo_id, first_name, last_name, age, created_at, 
         updated_at) VALUES (%(dojo_id)s, %(first_name)s, %(last_name)s, %(age)s, NOW(), NOW());"""
@@ -39,14 +47,6 @@ class Ninja:
         results = connectToMySQL(cls.DB).query_db(query, data)
         print(results)
         return results
-
-    @classmethod
-    def find_by_id(cls, data):
-
-        query = "SELECT * FROM ninjas WHERE id = %(id)s;"
-        results = connectToMySQL(cls.DB).query_db(query, data)
-        print(results)
-        return results[0]
 
     @classmethod
     def delete(cls, ninja_id):
